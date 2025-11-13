@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo If, Switch y Array</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: darkblue; }
+        p { font-size: 18px; }
+    </style>
+</head>
+<body>
+    <h1>Ejemplo con If, Switch y Array</h1>
+    <div id="resultado"></div>
+
+    <script>
+        // Array de días de la semana
+        const dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+
+        // Obtener el día actual (0 = Domingo, 6 = Sábado)
+        const hoy = new Date().getDay(); 
+        const diaActual = dias[hoy === 0 ? 6 : hoy - 1]; // Ajuste para que Lunes sea índice 0
+
+        let mensaje = "";
+
+        // Uso de IF
+        if (hoy >= 1 && hoy <= 5) {
+            mensaje = "Es día laboral.";
+        } else {
+            mensaje = "Es fin de semana 🎉.";
+        }
+
+        // Uso de SWITCH
+        let actividad;
+        switch (diaActual) {
+            case "Lunes":
+                actividad = "Comienza la semana con energía.";
+                break;
+            case "Viernes":
+                actividad = "Último día laboral, ánimo.";
+                break;
+            case "Sábado":
+            case "Domingo":
+                actividad = "Relájate, disfruta tu descanso.";
+                break;
+            default:
+                actividad = "Sigue con tus actividades.";
+                break;
+        }
+
+        // Mostrar resultados en la página
+        document.getElementById("resultado").innerHTML = `
+            <p>Hoy es: <strong>${diaActual}</strong></p>
+            <p>${mensaje}</p>
+            <p>${actividad}</p>
+        `;
+    </script>
+</body>
+</html>
